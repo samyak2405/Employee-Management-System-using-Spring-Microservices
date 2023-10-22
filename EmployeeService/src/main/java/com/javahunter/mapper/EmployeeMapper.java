@@ -1,34 +1,37 @@
 package com.javahunter.mapper;
 
-import com.javahunter.dto.request.EmployeeRequest;
-import com.javahunter.dto.response.EmployeeResponse;
+import com.javahunter.dto.request.EmployeeRequestDto;
+import com.javahunter.dto.response.EmployeeResponseDto;
 import com.javahunter.entity.Employee;
 
 public class EmployeeMapper {
 
-    public static Employee mapToEmployee(EmployeeRequest employeeRequest, Employee employee){
+    public static Employee mapToEmployee(Employee employee, EmployeeRequestDto employeeRequest){
 
         employee.setFirstName(employeeRequest.getFirstName());
         employee.setLastName(employeeRequest.getLastName());
-        employee.setTemporaryAddress(employeeRequest.getTemporaryAddress());
-        employee.setPermanentAddress(employeeRequest.getPermanentAddress());
         employee.setDateOfBirth(employeeRequest.getDateOfBirth());
-        employee.setMobileNumber(employeeRequest.getMobileNumber());
         employee.setEmail(employeeRequest.getEmail());
+        employee.setMobileNumber(employeeRequest.getMobileNumber());
         employee.setPassword(employeeRequest.getPassword());
+        employee.setPosition(employeeRequest.getPosition());
+        employee.setAddress(employeeRequest.getAddress());
+        employee.setEducation(employeeRequest.getEducation());
 
         return employee;
     }
 
-    public static EmployeeResponse mapToEmployeeResponse(Employee employee, EmployeeResponse employeeResponse){
+    public static EmployeeResponseDto mapToEmployeeResponseDto(EmployeeResponseDto responseDto, Employee employee){
 
-        employeeResponse.setFirstName(employee.getFirstName());
-        employeeResponse.setLastName(employee.getLastName());
-        employeeResponse.setTemperaryAddress(employee.getTemporaryAddress());
-        employeeResponse.setPermanentAddress(employee.getPermanentAddress());
-        employeeResponse.setMobileNumber(employee.getMobileNumber());
-        employeeResponse.setEmail(employee.getEmail());
+        responseDto.setFirstName(employee.getFirstName());
+        responseDto.setLastName(employee.getLastName());
+        responseDto.setDateOfBirth(employee.getDateOfBirth());
+        responseDto.setEmail(employee.getEmail());
+        responseDto.setMobileNumber(employee.getMobileNumber());
+        responseDto.setPosition(employee.getPosition());
+        responseDto.setAddress(employee.getAddress());
+        responseDto.setEducation(employee.getEducation());
 
-        return employeeResponse;
+        return responseDto;
     }
 }

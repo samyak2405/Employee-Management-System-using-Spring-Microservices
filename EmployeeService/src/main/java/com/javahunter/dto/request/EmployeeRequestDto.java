@@ -1,28 +1,35 @@
-package com.javahunter.dto.response;
+package com.javahunter.dto.request;
 
 import com.javahunter.entity.Address;
+import com.javahunter.entity.Education;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeResponse {
+public class EmployeeRequestDto {
 
     private String firstName;
+
     private String lastName;
-    private Address temperaryAddress;
-    private Address permanentAddress;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
-    private String mobileNumber;
+
     private String email;
+
+    private String mobileNumber;
+
+    private String password;
+
+    private String position;
+
+    private Address address;
+
+    private Education education;
 }

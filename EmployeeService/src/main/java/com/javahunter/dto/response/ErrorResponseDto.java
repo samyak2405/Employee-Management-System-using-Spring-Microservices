@@ -1,12 +1,17 @@
 package com.javahunter.dto.response;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.http.HttpStatus;
 
-@Getter
-@Setter
+import java.time.LocalDateTime;
+
+@Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class ErrorResponseDto {
-    private String errorCode;
-    private String errorDescription;
+
+    private String apiPath;
+    private HttpStatus errorCode;
+    private String errorMessage;
+    private LocalDateTime errorTime;
 }

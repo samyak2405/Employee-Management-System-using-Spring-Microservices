@@ -1,19 +1,20 @@
 package com.javahunter.entity;
 
 import jakarta.persistence.Embeddable;
-import lombok.*;
+import jakarta.persistence.Embedded;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
 public class Address {
 
-    private String streetAddress;
-    private String postalCode;
-    private String landmark;
+    private String street;
     private String city;
+    private String pinCode;
     private String state;
     private String country;
 }
