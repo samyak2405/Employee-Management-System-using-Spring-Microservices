@@ -9,11 +9,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DepartmentRequest {
+public class UpdateTechStackDto {
+
     private String departmentName;
-    private Long requiredEmployeeCount;
-    private String m1ManagerName;
-    private String m2ManagerName;
-    private String location;
     private List<String> techStack;
 }

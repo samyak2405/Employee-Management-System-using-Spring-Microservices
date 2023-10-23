@@ -1,6 +1,9 @@
 package com.javahunter.repository;
 
+import com.javahunter.entity.Department;
 import com.javahunter.entity.Employee;
+import com.javahunter.enums.EmployeeRoles;
+import com.javahunter.enums.EmployeeStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -17,6 +20,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     void deleteByEmail(String email);
 
-    @Query(value = "SELECT * FROM t_employee WHERE department=null",nativeQuery = true)
-    List<Employee> findByDepartment();
+    Employee findByEmpSerialNo(String empId);
+
+    List<Employee> findByDepartment(Department department);
+
+    List<Employee> findByPosition(EmployeeRoles position);
+
+    List<Employee> findByEmployeeStatus(EmployeeStatus status);
 }

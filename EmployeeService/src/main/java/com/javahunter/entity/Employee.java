@@ -1,10 +1,9 @@
 package com.javahunter.entity;
 
+import com.javahunter.enums.EmployeeRoles;
+import com.javahunter.enums.EmployeeStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -21,6 +20,8 @@ public class Employee extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long empId;
 
+    private String empSerialNo;
+
     private String firstName;
 
     private String lastName;
@@ -34,13 +35,17 @@ public class Employee extends BaseEntity{
 
     private String password;
 
-    private String position;
+    @Enumerated(EnumType.STRING)
+    private EmployeeRoles position;
 
     @Embedded
     private Address address;
 
     @Embedded
     private Education education;
+
+    @Enumerated(EnumType.STRING)
+    private EmployeeStatus employeeStatus;
 
     @ManyToOne
     @JoinColumn(name = "department_id")

@@ -2,6 +2,8 @@ package com.javahunter.dto.request;
 
 import com.javahunter.entity.Address;
 import com.javahunter.entity.Education;
+import com.javahunter.enums.EmployeeRoles;
+import com.javahunter.enums.EmployeeStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,9 +29,11 @@ public class EmployeeRequestDto {
 
     private String password;
 
-    private String position;
+    private EmployeeRoles position;
 
     private Address address;
 
     private Education education;
+
+    private EmployeeStatus empStatus;
 }

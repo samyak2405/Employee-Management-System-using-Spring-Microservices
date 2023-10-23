@@ -1,5 +1,6 @@
 package com.javahunter.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +26,11 @@ public class Department extends BaseEntity{
     private Long requiredEmployeeCount = 0L;
     private String m1ManagerName;
     private String m2ManagerName;
+    private String location;
+    private List<String> techStack;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "department")
     private List<Employee> employees;
+
 }

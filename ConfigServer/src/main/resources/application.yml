@@ -6,9 +6,9 @@ spring:
     name: CONFIG_SERVER
   cloud:
     config:
-      label: ems-development
       server:
         git:
           uri: https://github.com/samyak2405/Employee-Management-System-using-Spring-Microservices.git
           clone-on-start: true
+          default-label: ems-development
 

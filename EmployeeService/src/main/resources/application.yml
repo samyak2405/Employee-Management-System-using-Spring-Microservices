@@ -15,9 +15,14 @@ spring:
           format_sql: true
         naming:
           physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  application:
+    name: EMPLOYEE-SERVICE
+  config:
+    import: configserver:http://localhost:9296
 server:
   port: 8080
 logging:
   file: logs/application.log
   pattern:
     console: '%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n'
+

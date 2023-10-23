@@ -109,4 +109,32 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponseDto,
                 HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponseDto> handleResourceNotFoundException(ResourceNotFoundException resourceNotFoundException,
+                                                                            WebRequest webRequest){
+        ErrorResponseDto errorResponseDto = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.NOT_FOUND,
+                resourceNotFoundException.getMessage(),
+                LocalDateTime.now()
+        );
+
+        return new ResponseEntity<>(errorResponseDto,
+                HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(DepartmentNotAssignedException.class)
+    public ResponseEntity<ErrorResponseDto> handleDepartmentNotAssignedException(DepartmentNotAssignedException departmentNotAssignedException,
+                                                                            WebRequest webRequest){
+        ErrorResponseDto errorResponseDto = new ErrorResponseDto(
+                webRequest.getDescription(false),
+                HttpStatus.EXPECTATION_FAILED,
+                departmentNotAssignedException.getMessage(),
+                LocalDateTime.now()
+        );
+
+        return new ResponseEntity<>(errorResponseDto,
+                HttpStatus.EXPECTATION_FAILED);
+    }
 }

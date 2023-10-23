@@ -2,6 +2,7 @@ package com.javahunter.service;
 
 import com.javahunter.dto.request.DepartmentRequest;
 import com.javahunter.dto.request.UpdateManagerDto;
+import com.javahunter.dto.request.UpdateTechStackDto;
 import com.javahunter.dto.response.DepartmentResponse;
 import com.javahunter.entity.Department;
 import com.javahunter.exceptions.DepartmentAlreadyExistsException;
@@ -96,6 +97,18 @@ public class DepartmentServiceImpl implements DepartmentService {
         departmentRepository.save(department);
         return true;
     }
+
+    @Transactional
+    @Override
+    public boolean updateTechStack(UpdateTechStackDto updateTechStackDto){
+        Department department = departmentRepository.findByDepartmentName(updateTechStackDto.getDepartmentName());
+        if(department==null)
+            throw new DepartmentNotFoundException(updateTechStackDto.getDepartmentName());
+        department.setTechStack(updateTechStackDto.getTechStack());
+        departmentRepository.save(department);
+        return true;
+    }
+
     private boolean validateString(String s){
         return !s.isBlank() && !s.isEmpty();
     }

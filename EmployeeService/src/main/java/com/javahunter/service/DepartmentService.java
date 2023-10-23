@@ -2,6 +2,7 @@ package com.javahunter.service;
 
 import com.javahunter.dto.request.DepartmentRequest;
 import com.javahunter.dto.request.UpdateManagerDto;
+import com.javahunter.dto.request.UpdateTechStackDto;
 import com.javahunter.dto.response.DepartmentResponse;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +20,6 @@ public interface DepartmentService {
     public boolean deleteDepartment(String departmentName);
 
     boolean updateManagers(UpdateManagerDto updateManagerDto);
+
+    boolean updateTechStack(UpdateTechStackDto updateTechStackDto);
 }
